@@ -73,21 +73,14 @@ fn twin_sieve(k_max: usize, kb: usize, r_hi: usize, modpg: usize, num: usize, p_
         for (i, &prime) in primes.iter().enumerate() {
             //lower twin
             let mut k = next_p[i];
-            while k < kn {
-                seg[k] |= 1;
-                k += prime;
-            }
+            while k < kn {seg[k] |= 1; k += prime;}
             next_p[i] = k - kn;
 
             //higher twin
             k = next_p[p_cnt + i];
-            while k < kn {
-                seg[k] |= 1;
-                k += prime;
-            }
+            while k < kn {seg[k] |= 1; k += prime;}
             next_p[i + p_cnt] = k - kn;
         }
-
         //count the number of twins found
         let mut cnt = 0usize;
         seg.iter().take(kn).for_each(|&x| if x == 0 {cnt += 1});
