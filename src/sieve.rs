@@ -172,13 +172,13 @@ fn soz_pg(val: usize, residues: &Vec<usize>) -> (Arc<Vec<usize>>, usize) {
     for i in 0usize..max_pcs {
         if r == res_cnt {r = 0; mod_k += md; k += 1;}
         if primes[i] {r += 1; continue;}
-        let pmr_r = res[i];
+        let prm_r = res[i];
         let prime = mod_k + pmr_r;
         if prime > sqn {break;}
         let prm_step = prime * res_cnt;
         for ri in res {
             //compute resgroup val of 1st prime multiple, then mark all prime multiples up to end of prms
-            let prod = pmr_r * ri - 2;
+            let prod = prm_r * ri - 2;
             let mut prm_mult = (k * (prime + ri) + prod / md) * res_cnt + posn[prod % md];
             while prm_mult < max_pcs {primes[prm_mult] = true; prm_mult += prm_step;}
         }
