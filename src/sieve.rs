@@ -152,7 +152,7 @@ fn soz_pg(val: usize, residues: &Vec<usize>) -> (Arc<Vec<usize>>, usize) {
     //Create parameters for P5
     let md = 30;
     let res_cnt = 8;
-    let res: [usize, 8] = [7,11,13,17,19,23,29,31];
+    let res: [usize; 8] = [7,11,13,17,19,23,29,31];
     let posn: [usize; 30] = [0,0,0,0,0,0,0,0,0,1,0,2,0,0,0,3,0,4,0,0,0,5,0,0,0,0,0,6,0,7];
 
     let num = (val - 1) | 1;
