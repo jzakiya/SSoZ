@@ -59,7 +59,7 @@ fn twin_sieve(k_max: usize, kb: usize, r_hi: usize, modpg: usize, num: usize, p_
               primes: Arc<Vec<usize>>, res_inv: Arc<Vec<usize>>, pos: Arc<Vec<usize>>) -> (usize, usize) {
     //Initialize variables
     let (mut sum, mut ki, mut kn) = (0usize, 0usize, kb);
-    let (mut hi_tp, mut upk, mut k_max) = (0usize, 0usize, k_max);
+    let (mut hi_tp, mut k_max) = (0usize, k_max);
     let mut seg = vec![0u8;kb];
     let mut next_p =
         next_p_init(r_hi, modpg, primes.clone(),p_cnt, res_inv.clone(), pos.clone());
@@ -89,7 +89,7 @@ fn twin_sieve(k_max: usize, kb: usize, r_hi: usize, modpg: usize, num: usize, p_
         if cnt > 0 {
             sum += cnt;
             // Save the location of the largest prime
-            upk = kn - 1;
+            let mut upk = kn - 1;
             while seg[upk] == 1 {upk -= 1}
             hi_tp = ki + upk;
         }
