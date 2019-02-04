@@ -172,7 +172,7 @@ fn soz_pg(val: usize, residues: &Vec<usize>) -> (Arc<Vec<usize>>, usize) {
     for i in 0usize..max_pcs {
         if r == res_cnt {r = 0; mod_k += md; k += 1;}
         if primes[i] {r += 1; continue;}
-        let prm_r = res[i];
+        let prm_r = res[r];
         let prime = mod_k + prm_r;
         if prime > sqn {break;}
         let prm_step = prime * res_cnt;
